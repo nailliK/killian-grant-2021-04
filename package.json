@@ -1,6 +1,7 @@
 {
   "name": "killiangrant.com",
   "version": "1.0.0",
+  "license": "Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)",
   "description": "",
   "scripts": {
     "dev": "webpack serve --mode=development --config=webpack.config.ts",
@@ -9,7 +10,6 @@
     "serve": "nodemon --exec 'node --loader ts-node/esm' server.ts"
   },
   "author": "",
-  "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^7.4.0",
     "body-parser": "^1.19.0",
