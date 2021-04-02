@@ -1,0 +1,106 @@
+// Initial variables
+$font-size: 1rem !default;
+$line-height: 1.5 * $font-size !default;
+$grid-type: magic !default; // fluid max width = 100%; magic max width = largest breakpoint width
+$grid-gutter: $line-height !default; // value or false
+$grid-padding: false !default; // value or false
+$container-padding: false !default;
+
+// responsive breakpoints
+$grid-breakpoints: (
+  small: 30rem,
+  medium: 48rem,
+  large: 64rem
+) !default;
+
+$total-cols: nth(nth($grid-breakpoints, length($grid-breakpoints)), 2);
+
+@function parseInt($n) {
+  @return $n / ($n * 0 + 1);
+}
+
+@mixin breakpoint($n) {
+  @media (min-width: map_get($grid-breakpoints, $n)) {
+    @content;
+  }
+}
+
+@mixin container($justify : space-between) {
+  $break: nth($grid-breakpoints, length($grid-breakpoints));
+  $break: nth($break, 2);
+
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: $justify;
+  margin-left: auto;
+  margin-right: auto;
+
+  @if ($grid-type == magic) {
+    max-width: #{$break};
+    width: 100%;
+  } @else if ($grid-type == fluid) {
+    max-width: 100%;
+    width: 100%;
+  }
+  @if ($container-padding != false) {
+    padding: 0 $container-padding;
+  }
+}
+
+@mixin cols($cols: false, $reference: $total-cols) {
+  @if ($grid-padding != false) {
+    padding-left: $grid-padding;
+    padding-right: $grid-padding;
+  }
+
+  @if ($cols == false) {
+    // each element will try to take up as much space as possible on the same line
+    // no gutter will be applied.
+    flex: 1;
+  } @else {
+    flex: 0 0 auto;
+    // assign widths
+    @if ($grid-gutter != false) {
+      flex-basis: calc(
+        (#{$cols} / #{$reference} * 100%) - #{$grid-gutter} + (#{$cols} / #{$reference} * #{$grid-gutter})
+      );
+
+      max-width: calc(
+        (#{$cols} / #{$reference} * 100%) - #{$grid-gutter} + (#{$cols} / #{$reference} * #{$grid-gutter})
+      );
+    } @else {
+
+      flex-basis: calc(#{$cols} / #{$reference} * 100%);
+      max-width: calc(#{$cols} / #{$reference} * 100%);
+    }
+  }
+}
+
+@mixin pre($cols, $reference: $total-cols) {
+  @if ($grid-gutter != false) {
+    margin-left: calc((#{$cols} / #{$reference} * 100%) + (#{$cols} / #{$reference} * #{$grid-gutter}));
+  } @else {
+    margin-left: calc(#{$cols} / #{$reference} * 100%);
+  }
+}
+
+@mixin post($cols, $reference: $total-cols) {
+  @if ($grid-gutter != false) {
+    margin-right: calc((#{$cols} / #{$reference} * 100%) + (#{$cols} / #{$reference} * #{$grid-gutter}));
+  } @else {
+    margin-right: calc(#{$cols} / #{$reference} * 100%);
+  }
+}
+
+@mixin container-grid($cols:1) {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: $cols+1
+}
+
+@mixin cols-grid($cols, $reference) {
+  grid-column: $cols / $reference;
+}
+

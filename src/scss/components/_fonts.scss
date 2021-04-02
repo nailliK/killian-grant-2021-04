@@ -1,0 +1,73 @@
+// Campton
+@font-face {
+  font-family: "Campton";
+  src: url("@/fonts/Campton/Campton-Book.woff2") format("woff2"),
+  url("@/fonts/Campton/Campton-Book.woff") format("woff"),
+  url("@/fonts/Campton/Campton-Book.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Campton";
+  src: url("@/fonts/Campton/Campton-BookItalic.woff2") format("woff2"),
+  url("@/fonts/Campton/Campton-BookItalic.woff") format("woff"),
+  url("@/fonts/Campton/Campton-BookItalic.otf") format("opentype");
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Campton";
+  src: url("@/fonts/Campton/Campton-Bold.woff2") format("woff2"),
+  url("@/fonts/Campton/Campton-Bold.woff") format("woff"),
+  url("@/fonts/Campton/Campton-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Campton";
+  src: url("@/fonts/Campton/Campton-BoldItalic.woff2") format("woff2"),
+  url("@/fonts/Campton/Campton-BoldItalic.woff") format("woff"),
+  url("@/fonts/Campton/Campton-BoldItalic.otf") format("opentype");
+  font-style: italic;
+  font-weight: 700;
+}
+
+// Operator Mono SSm
+@font-face {
+  font-family: "Operator Mono SSm";
+  src: url("@/fonts/OperatorMonoSSM/OperatorMonoSSM-Book.woff2") format("woff2"),
+  url("@/fonts/OperatorMonoSSM/OperatorMonoSSM-Book.woff") format("woff"),
+  url("@/fonts/OperatorMonoSSM/OperatorMonoSSM-Book.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Operator Mono SSm";
+  src: url("@/fonts/OperatorMonoSSM/OperatorMonoSSM-BookItalic.woff2") format("woff2"),
+  url("@/fonts/OperatorMonoSSM/OperatorMonoSSM-BookItalic.woff") format("woff"),
+  url("@/fonts/OperatorMonoSSM/OperatorMonoSSM-BookItalic.otf") format("opentype");
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Operator Mono SSm";
+  src: url("@/fonts/OperatorMonoSSM/OperatorMonoSSM-Bold.woff2") format("woff2"),
+  url("@/fonts/OperatorMonoSSM/OperatorMonoSSM-Bold.woff") format("woff"),
+  url("@/fonts/OperatorMonoSSM/OperatorMonoSSM-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Operator Mono SSm";
+  src: url("@/fonts/OperatorMonoSSM/OperatorMonoSSM-BoldItalic.woff2") format("woff2"),
+  url("@/fonts/OperatorMonoSSM/OperatorMonoSSM-BoldItalic.woff") format("woff"),
+  url("@/fonts/OperatorMonoSSM/OperatorMonoSSM-BoldItalic.otf") format("opentype");
+  font-style: italic;
+  font-weight: 700;
+}

@@ -1,0 +1,13 @@
+.app {
+  background-color: var(--color--background);
+  color: var(--color--text);
+  max-width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  transition: all 0.25s ease-in-out;
+
+  a {
+    color: var(--color--primary);
+    transition: all 0.25s ease-in-out;
+  }
+}

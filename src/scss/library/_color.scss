@@ -1,0 +1,22 @@
+@function cmyka($c, $m, $y, $k, $a) {
+	$c: $c / 100;
+	$m: $m / 100;
+	$y: $y / 100;
+	$k: $k / 100;
+
+	$r: 255 * (1 - $c) * (1 - $k);
+	$g: 255 * (1 - $m) * (1 - $k);
+	$b: 255 * (1 - $y) * (1 - $k);
+
+	@return rgba($r, $g, $b, $a);
+}
+
+@function hsva($h-hsb, $s-hsb, $b-hsb, $a: 1) {
+	@if $b-hsb == 0 {
+		@return hsla(0, 0, 0, $a)
+	} @else {
+		$l-hsl: ($b-hsb/2) * (2 - ($s-hsb/100));
+		$s-hsl: ($b-hsb * $s-hsb) / if($l-hsl < 50, $l-hsl * 2, 200 - $l-hsl * 2);
+		@return hsla($h-hsb, $s-hsl, $l-hsl, $a);
+	}
+}

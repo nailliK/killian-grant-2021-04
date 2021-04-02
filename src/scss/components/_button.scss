@@ -1,0 +1,30 @@
+.button {
+  background: var(--color--primary);
+  border: none;
+  border-radius: 0.25 * $line-height;
+  color: var(--color--text);
+  cursor: pointer;
+  display: inline-block;
+  font-family: $font-family-secondary;
+  font-size: $font-size;
+  font-weight: 700;
+  line-height: 2 * $line-height;
+  margin: 0;
+  padding: 0 1rem;
+  text-transform: uppercase;
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    background: var(--color--text);
+    color: var(--color--primary);
+  }
+
+  &--absolute {
+    position: absolute;
+
+    &--top-right {
+      right: 0;
+      top: 0;
+    }
+  }
+}

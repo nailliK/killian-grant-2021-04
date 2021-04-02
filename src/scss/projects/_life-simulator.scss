@@ -1,0 +1,68 @@
+#life-simulator {
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+  z-index: 1;
+
+  .canvas {
+    direction: rtl;
+    display: grid;
+    grid-auto-flow: row;
+    max-height: 100vh;
+    max-width: 100vw;
+    overflow: hidden;
+
+    .cell {
+      background: $grey;
+      display: block;
+      height: $line-height;
+      opacity: 0;
+      overflow: visible;
+      position: relative;
+      // transition: all 0.125s ease-in-out;
+      width: $line-height;
+      z-index: 1;
+
+      //&:before {
+      //  background: mix($grey, $yellow, 33%);
+      //  content: "";
+      //  height: $line-height;
+      //  left: -.5 * $line-height;
+      //  position: absolute;
+      //  top: 0;
+      //  transform: translateY(.25 * $line-height) skewY(-45deg);
+      //  width: 0.5 * $line-height;
+      //  z-index: 0;
+      //}
+      //
+      //&:after {
+      //  background: mix($grey, $yellow, 66%);
+      //  bottom: - 0.5 * $line-height;
+      //  content: "";
+      //  height: 0.5 * $line-height;
+      //  left: -.5 * $line-height;
+      //  position: absolute;
+      //  transform: translateX(.25 * $line-height) skewX(-45deg);
+      //  width: $line-height;
+      //  z-index: 0;
+      //}
+
+      &--alive {
+        opacity: 1;
+      }
+    }
+  }
+
+  .header-controls {
+    padding: $line-height;
+    position: fixed;
+    right: 0;
+    top: 4 * $line-height;
+    z-index: 1;
+  }
+
+  .controls {
+    padding: calc(100vh - 3 * #{$line-height}) $line-height $line-height $line-height;
+    position: relative;
+  }
+}

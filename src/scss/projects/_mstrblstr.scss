@@ -1,0 +1,81 @@
+#mstrblstr {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+
+  .start {
+    left: 50%;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .prev-next {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+
+    svg {
+      display: block;
+      height: 2 * $line-height;
+      width: auto;
+
+      rect {
+        fill: var(--color--text);
+      }
+    }
+
+    &.hidden {
+      display: none;
+    }
+
+    &--prev {
+      left: $line-height;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    &--next {
+      right: $line-height;
+    }
+  }
+
+  video {
+    height: 100vh;
+    object-fit: cover;
+    pointer-events: none;
+    width: 100vw;
+  }
+
+  .attributions {
+    bottom: 2 * $line-height;
+    left: 0;
+    padding: $line-height;
+    position: absolute;
+
+    p:last-of-type {
+      margin: 0;
+    }
+  }
+
+  #audio-player {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+  }
+}

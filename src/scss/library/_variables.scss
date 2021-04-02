@@ -1,0 +1,36 @@
+$green: #29AA35;
+$yellow: #FFBF00;
+$blue: #2286EA;
+$pink: #F5989D;
+$grey: #414042;
+$off-white: #F5F5F5;
+
+$color-background: $off-white;
+$color-text: $grey;
+$color-primary: $green;
+
+$font-size: 1rem;
+$line-height: 1.5 * $font-size;
+$grid-gutter: $line-height;
+$grid-type: fluid;
+
+$font-family-primary: "Operator Mono SSm", monospace;
+$font-family-secondary: "Campton", sans-serif;
+
+:root {
+  --blue: #{$blue};
+  --green: #{$green};
+  --grey: #{$grey};
+  --pink: #{$pink};
+  --yellow: #{$yellow};
+  --off-white: #{$off-white};
+}
+
+:root {
+  --color--background: initial;
+  --position--body: relative;
+  --position--footer: relative;
+  --position--header: relative;
+  --color--primary: initial;
+  --color--text: initial;
+}

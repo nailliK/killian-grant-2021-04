@@ -1,0 +1,73 @@
+html {
+  font-family: $font-family-primary;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $font-family-secondary;
+  font-weight: 700;
+  margin-top: 0;
+
+  &.no-margin-bottom {
+    margin-bottom: 0;
+  }
+}
+
+h1 {
+  font-size: 4 * $font-size;
+  line-height: 4 * $line-height;
+  margin-bottom: 2 * $line-height;
+}
+
+h2 {
+  font-size: 3 * $font-size;
+  line-height: 3 * $line-height;
+  margin-bottom: $line-height;
+}
+
+h3 {
+  font-size: 2 * $font-size;
+  line-height: 2 * $line-height;
+  margin-bottom: $line-height;
+}
+
+h4 {
+  font-size: $font-size;
+  line-height: $line-height;
+  margin-bottom: $line-height;
+}
+
+p {
+  margin-bottom: $line-height;
+  margin-top: 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: var(--color--primary);
+  text-decoration: none;
+
+  &.icon-link {
+    display: inline-block;
+    line-height: 3 * $line-height;
+    vertical-align: middle;
+
+    span {
+      display: none;
+    }
+
+    .icon {
+      height: 3 * $font-size;
+      vertical-align: middle;
+    }
+  }
+}
+
+.emoji {
+  font-size: $line-height;
+  vertical-align: middle;
+}

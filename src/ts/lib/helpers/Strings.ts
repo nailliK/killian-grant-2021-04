@@ -1,0 +1,6 @@
+export default class Strings {
+	capitalize(str: string): string {
+		return str.charAt(0)
+			.toUpperCase() + str.slice(1);
+	}
+}

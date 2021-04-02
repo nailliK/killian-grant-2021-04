@@ -1,0 +1,33 @@
+.cards {
+  @include container();
+
+  list-style: none;
+  margin: 0 0 $line-height 0;
+  padding: 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .card {
+    @include cols(1, 1);
+
+    border-radius: 0.25 * $line-height;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 2px 2px rgba(0, 0, 0, 0.075),
+    0 4px 4px rgba(0, 0, 0, 0.075),
+    0 8px 8px rgba(0, 0, 0, 0.075);
+    margin-bottom: $line-height;
+    padding: $line-height;
+    transition: box-shadow 0.25s ease-in-out;
+
+    @include breakpoint(medium) {
+      @include cols(1, 2);
+    }
+
+    .icon {
+      height: 2 * $line-height;
+      margin-bottom: $line-height;
+    }
+  }
+}
