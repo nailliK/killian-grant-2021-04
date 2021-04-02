@@ -5,6 +5,7 @@ import "regenerator-runtime/runtime"; // To ensure that regeneratorRuntime is de
 import {createApp} from "vue";
 import App from "@/vue/App.vue";
 import router from "@/ts/lib/router/router";
+import {RouteLocationNormalized} from "vue-router";
 
 createApp(App)
 	.use(router)
@@ -12,7 +13,7 @@ createApp(App)
 
 
 // Set style variables
-router.afterEach((to, from) => {
+router.afterEach((to: RouteLocationNormalized, from: RouteLocationNormalized) => {
 	let styleTag: HTMLElement | null = document.getElementById("style-tag");
 	if (styleTag === null) {
 		styleTag = document.createElement("style");

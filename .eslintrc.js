@@ -44,7 +44,7 @@ module.exports = {
 		],
 		"func-style": [
 			"error",
-			"declaration"
+			"expression"
 		],
 		"multiline-ternary": [
 			"error",
@@ -83,6 +83,8 @@ module.exports = {
 		"@typescript-eslint/no-unsafe-call": "off",
 		// Allow floating promises (for now)
 		"@typescript-eslint/no-floating-promises": "off",
+		// Allow + operands
+		"@typescript-eslint/restrict-plus-operands": "off",
 		// Enforce assertion style
 		"@typescript-eslint/consistent-type-assertions": [
 			"error",

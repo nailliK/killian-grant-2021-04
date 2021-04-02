@@ -49,24 +49,23 @@ export default {
     const cells: Ref<Array<Cell>> = ref([]);
 
 
-    const getMatrixAt = (x: number, y: number): Cell => {
-      return matrix.find((m: Cell) => {
+    const getMatrixAt: Function = (x: number, y: number): Cell => {
+      return <Cell>matrix.find((m: Cell) => {
         return m.x === x && m.y === y;
-      }) as Cell;
+      });
     };
 
-    const makeCell = (x: number, y: number): Cell => {
-      const n: Cell = {
+    const makeCell: Function = (x: number, y: number): Cell => {
+      return <Cell>{
         alive: Math.round(Math.random()) > 0.5,
         x: x,
         y: y,
         density: 0,
         neighbors: {}
       };
-      return n;
     };
 
-    const setNeighbor = (x: number, y: number): void => {
+    const setNeighbor: VoidFunction = (x: number, y: number): void => {
       let _x: number = x - 1;
       if (_x < 0) {
         _x = cols.value - 1;
@@ -100,7 +99,7 @@ export default {
       };
     };
 
-    const setNeighbors = (): void => {
+    const setNeighbors: VoidFunction = (): void => {
       for (let y: number = 0; y < rows.value; y++) {
         for (let x: number = 0; x < cols.value; x++) {
           setNeighbor(x, y);
@@ -108,7 +107,7 @@ export default {
       }
     };
 
-    const setSnapshot = (): void => {
+    const setSnapshot: VoidFunction = (): void => {
       // For determining sameness later
       // const original: Array<Cell> = snapshot.slice(0);
 
@@ -148,20 +147,20 @@ export default {
       }
     };
 
-    const setMatrix = (): void => {
+    const setMatrix: VoidFunction = (): void => {
       for (let s: number = 0; s < snapshot.length; s++) {
         matrix[s].alive = snapshot[s];
       }
     };
 
-    const setCells = (): void => {
+    const setCells: VoidFunction = (): void => {
       cells.value = [];
       for (let m: number = 0; m < matrix.length; m++) {
         cells.value[m] = matrix[m];
       }
     };
 
-    const tick = (): void => {
+    const tick: VoidFunction = (): void => {
       setSnapshot();
       setMatrix();
       setCells();
@@ -169,7 +168,7 @@ export default {
       setTimeout(tick, 1000 / fps);
     };
 
-    const reset = (): void => {
+    const reset: VoidFunction = (): void => {
       matrix = [];
       snapshot = [];
 
@@ -184,8 +183,8 @@ export default {
       setNeighbors();
     };
 
-    const resize = (): void => {
-      const squareSize = parseInt(window.getComputedStyle(document.body, null)
+    const resize: VoidFunction = (): void => {
+      const squareSize: number = parseInt(window.getComputedStyle(document.body, null)
           .getPropertyValue("line-height"));
       cols.value = Math.ceil(window.innerWidth / squareSize);
       rows.value = Math.ceil(window.innerHeight / squareSize);
@@ -193,13 +192,13 @@ export default {
       reset();
     };
 
-    const init = (): void => {
+    const init: VoidFunction = (): void => {
       window.addEventListener("resize", resize);
       resize();
       tick();
     };
 
-    const onRestart = (): void => {
+    const onRestart: VoidFunction = (): void => {
       reset();
     };
 

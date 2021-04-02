@@ -110,14 +110,14 @@ window.SC = window.SC || {};
 
 export default {
   props: {},
-  setup: function (props: LooseObject, context: SetupContext) {
+  setup: function (props: LooseObject, context: SetupContext): LooseObject {
     const pexelsKey: string = "563492ad6f9170000100000160882ac2b50e487fa4164462be8a2e2c";
     let player: HTMLVideoElement;
     let iframe: HTMLIFrameElement;
     let scWidget: any;
-    let collageIndex: Ref = ref(0);
-    let videoIndex: Ref = ref(0);
-    const collages: Ref = ref([
+    let collageIndex: Ref = ref<number>(0);
+    let videoIndex: Ref = ref<number>(0);
+    const collages: Ref = ref<Array<Collage>>([
       {
         name: "Billiards",
         soundcloudId: "792674413",
@@ -241,7 +241,7 @@ export default {
     const soundCloudID: Ref = ref(collages.value[collageIndex.value].soundcloudId);
     const autoplay: Ref = ref(true);
 
-    const loadVideo = () => {
+    const loadVideo: VoidFunction = (): void => {
       let xhr: XMLHttpRequest = new XMLHttpRequest();
       xhr.addEventListener("load", () => {
         let response: LooseObject = JSON.parse(xhr.response);
@@ -258,7 +258,7 @@ export default {
       xhr.send();
     };
 
-    const loadAudio = () => {
+    const loadAudio: VoidFunction = (): void => {
       scWidget.unbind(window.SC.Widget.Events.FINISH);
 
       scWidget.load(`https://api.soundcloud.com/tracks/${soundCloudID.value}`);
@@ -277,9 +277,9 @@ export default {
       });
     };
 
-    const shuffleArray = (arr: Array<any>) => {
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+    const shuffleArray: VoidFunction = (arr: Array<any>): void => {
+      for (let i: number = arr.length - 1; i > 0; i--) {
+        const j: number = Math.floor(Math.random() * (i + 1));
         [
           arr[i],
           arr[j]
@@ -290,7 +290,7 @@ export default {
       }
     };
 
-    const onStart = () => {
+    const onStart: VoidFunction = (): void => {
       // Shuffle initial collages
       shuffleArray(collages.value);
 
@@ -305,7 +305,7 @@ export default {
       loadAudio();
     };
 
-    const onPrevCollage = () => {
+    const onPrevCollage: VoidFunction = (): void => {
       collageIndex.value = collageIndex.value - 1;
       videoIndex.value = 0;
 
@@ -319,7 +319,7 @@ export default {
       loadAudio();
     };
 
-    const onNextCollage = () => {
+    const onNextCollage: VoidFunction = (): void => {
       collageIndex.value = collageIndex.value + 1;
       videoIndex.value = 0;
 
@@ -332,7 +332,7 @@ export default {
       loadAudio();
     };
 
-    const onVideoEnded = () => {
+    const onVideoEnded: VoidFunction = (): void => {
       videoIndex.value = videoIndex.value + 1;
 
       if (videoIndex.value >= collages.value[collageIndex.value].videoIds.length) {
@@ -342,12 +342,12 @@ export default {
       loadVideo();
     };
 
-    const onAudioEnded = () => {
+    const onAudioEnded: VoidFunction = (): void => {
       onNextCollage();
     };
 
     onMounted(() => {
-      player = document.getElementById("video-player") as HTMLVideoElement;
+      player = <HTMLVideoElement>document.getElementById("video-player");
       player.volume = 0;
 
       player.addEventListener("ended", () => {
@@ -358,7 +358,7 @@ export default {
         player.play();
       });
 
-      iframe = document.getElementById("audio-player") as HTMLIFrameElement;
+      iframe = <HTMLIFrameElement>document.getElementById("audio-player");
       scWidget = window.SC.Widget(iframe);
     });
 

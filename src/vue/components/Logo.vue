@@ -116,7 +116,7 @@ export default {
     const logoIndex: Ref = ref(Math.floor(Math.random() * logoCount));
     let isHover: boolean = false;
 
-    function increaseIndex(): void {
+    const increaseIndex: VoidFunction = (): void => {
       if (isHover) {
         logoIndex.value = logoIndex.value + 1;
 
@@ -124,16 +124,15 @@ export default {
           logoIndex.value = 0;
         }
         setTimeout(increaseIndex, 75);
-
       }
-    }
+    };
 
-    const onMouseEnter = () => {
+    const onMouseEnter: VoidFunction = (): void => {
       isHover = true;
       increaseIndex();
     };
 
-    const onMouseLeave = () => {
+    const onMouseLeave: VoidFunction = (): void => {
       isHover = false;
     };
 

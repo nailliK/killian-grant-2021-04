@@ -1,5 +1,7 @@
-export default interface Collage {
+interface Collage {
 	name: string,
 	videoIds: Array<string>,
-	soundcloudId: string
-};;;;;;;;;;;
+	soundcloudId: string,
+}
+
+export default Collage;

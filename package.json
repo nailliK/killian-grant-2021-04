@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack serve --mode=development --config=webpack.config.ts",
     "build": "rm -rf dist/* && webpack --mode=production --config=webpack.config.ts",
-    "lint": "eslint 'src/**/*.{ts,js,json,vue}' --fix",
+    "lint": "eslint --fix 'src/**/*.{ts,js,json,vue}'",
     "serve": "nodemon --exec 'node --loader ts-node/esm' server.ts"
   },
   "author": "",
