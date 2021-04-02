@@ -111,7 +111,7 @@ window.SC = window.SC || {};
 export default {
   props: {},
   setup: function (props: LooseObject, context: SetupContext): LooseObject {
-    const pexelsKey: string = "563492ad6f9170000100000160882ac2b50e487fa4164462be8a2e2c";
+    const pexelsKey: string = process.env.PEXELS_KEY;
     let player: HTMLVideoElement;
     let iframe: HTMLIFrameElement;
     let scWidget: any;

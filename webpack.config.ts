@@ -2,6 +2,7 @@ const path = require("path");
 const {VueLoaderPlugin} = require("vue-loader");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
 	cache: false,
@@ -82,7 +83,8 @@ module.exports = {
 			chunks: ["index"],
 			filename: "index.html"
 		}),
-		new VueLoaderPlugin()
+		new VueLoaderPlugin(),
+		new Dotenv()
 	],
 	devServer: {
 		hot: true,
